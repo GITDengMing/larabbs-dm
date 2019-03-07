@@ -9,12 +9,14 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\Traits\ActiveUserHelper;
+use App\Models\Traits\LastActivedAtHelper;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
     use  MustVerifyEmailTrait;
     use HasRoles;
     use ActiveUserHelper;
+    use LastActivedAtHelper;
     use Notifiable {
         notify as protected laravelNotify;
     }
